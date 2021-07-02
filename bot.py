@@ -136,8 +136,8 @@ async def dice(ctx):
 #     await ctx.channel.purge(limit=amount)
 
 @bot.command(name="청소", pass_context=True)
-async def clear(ctx, *, amount=5):
-    await ctx.channel.purge(limit=amount)
+async def clear(ctx):
+    await ctx.channel.purge(limit=5)
 ################## Cleaner End
 #
 # @bot.event
