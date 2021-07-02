@@ -128,8 +128,14 @@ async def on_member_remove(member):
 async def dice(ctx):
     randnum = random.randint(1, 6)  # 1이상 6이하 랜덤 숫자를 뽑음
     await ctx.send(f'🧛‍♂️주사위 결과 : {randnum}')
-
 ################## Dice End
+
+################## Cleaner
+@bot.command()
+async def cleaner(ctx, amount : int):
+    await ctx.channel.purge(limit=amount)
+################## Cleaner End
+#
 # @bot.event
 # async def on_message(message):
 #     if message.content.startswith('.game'):
