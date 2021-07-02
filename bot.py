@@ -24,9 +24,13 @@ async def on_ready():
 async def hello1(ctx):
     await ctx.send('어 그래 어서오고. 잘 지내냐?')
 
-@bot.command(aliases=['ㅎㅇ', '하이', '하잉'])
+@bot.command(aliases=['ㅎㅇ', '하이'])
 async def hello2(ctx):
     await ctx.send('어 그래')
+
+@bot.command(aliases=['ㅎㅇㄹ', '하이루', '하잉'])
+async def hello3(ctx):
+    await ctx.send('방가방가')
 
 @bot.command()
 async def 송인철(ctx):
@@ -55,6 +59,18 @@ async def embed(ctx) :
     embed.add_field(name = "송인철", value = "Just Try.\n", inline=False)
     embed.set_footer(text = "다양한 의견 제시 바람")
     await ctx.send(embed = embed)
+
+@bot.event
+async def on_member_join(member):
+    fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
+    channel = member.server.get_channel("channel_id_here")
+    await bot.send_message(channel, fmt.format(member, member.server))
+ 
+@bot.event
+async def on_member_remove(member):
+    channel = member.server.get_channel("channel_id_here")
+    fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
+    await bot.send_message(channel, fmt.format(member, member.server))
 
 # @bot.event
 # async def on_message(message):
