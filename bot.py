@@ -1,6 +1,7 @@
+import os
 import discord, asyncio
 from discord.ext import commands
-import os
+import random
 
 from discord.flags import alias_flag_value
 
@@ -58,7 +59,7 @@ async def hello3(ctx):
 ################## 인사 명령어 EMD
 
 
-################## Member
+################## Member INFO
 @bot.command(alias=['감자통모짜', '20시 유산균을 먹자'])
 async def 송인철(ctx):
     embed = discord.Embed(title = "송 인철",
@@ -103,9 +104,11 @@ async def 김요환(ctx):
     embed.add_field(name = "직업", value = "수상한 공부방 긴 생머리 아저씨", inline = False)
     embed.add_field(name = "취미", value = "머리카락 흩날리며 뒤돌아보기", inline = False)
     await ctx.send(embed = embed)
-################## Member END
+################## Member INFO END
 
 
+
+################## Welcome & GoodBye Message
 @bot.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
@@ -117,7 +120,16 @@ async def on_member_remove(member):
     channel = member.server.get_channel("channel_id_here")
     fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
     await bot.send_message(channel, fmt.format(member, member.server))
+################## Welcome & GoodBye Message End
 
+
+################## Dice
+@bot.command()
+async def dice(ctx):
+    randnum = random.randint(1, 6)  # 1이상 6이하 랜덤 숫자를 뽑음
+    await ctx.send(f'주사위 결과는 {randnum} 입니다.')
+
+################## Dice End
 # @bot.event
 # async def on_message(message):
 #     if message.content.startswith('.game'):
