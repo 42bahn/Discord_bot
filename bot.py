@@ -24,7 +24,7 @@ async def cmd_list(commands):
 async def on_ready():
     await bot.change_presence(status = discord.Status.online, activity=discord.Game('.help | 제작 '))
     # await cmd_list(commands)
-    print('Set [State Massage]')
+    print('Running.....')
 ################## 봇 상태메시지 설정 END
 
 ################## .help
