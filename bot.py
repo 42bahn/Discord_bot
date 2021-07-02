@@ -1,5 +1,6 @@
 import discord, asyncio
 from discord.ext import commands
+import os
 
 bot = commands.Bot(command_prefix='.', help_command=None)
 
@@ -67,6 +68,6 @@ async def embed(ctx) :
 
 #         await reaction.message.channel.send(user.name + "님이 stun 아이템을 구매")
 
-token = open("private_token", "r").readline()
+# token = open("private_token", "r").readline()
 
-bot.run(token)
+bot.run(os.environ['token'])
