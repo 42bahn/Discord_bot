@@ -127,7 +127,7 @@ async def on_member_remove(member):
 @bot.command()
 async def dice(ctx):
     randnum = random.randint(1, 6)  # 1이상 6이하 랜덤 숫자를 뽑음
-    await ctx.send(f'주사위 결과는 {randnum} 입니다.')
+    await ctx.send(f'🧛‍♂️주사위 결과 : {randnum}')
 
 ################## Dice End
 # @bot.event
