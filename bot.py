@@ -131,8 +131,12 @@ async def dice(ctx):
 ################## Dice End
 
 ################## Cleaner
-@bot.command(alias=['청소'])
-async def cleaner(ctx, amount : int):
+# @bot.command(alias=['청소'])
+# async def cleaner(ctx, amount : int):
+#     await ctx.channel.purge(limit=amount)
+
+@bot.command(name="청소", pass_context=True)
+async def clear(ctx, *, amount=5):
     await ctx.channel.purge(limit=amount)
 ################## Cleaner End
 #
