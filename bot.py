@@ -67,4 +67,6 @@ async def embed(ctx) :
 
 #         await reaction.message.channel.send(user.name + "님이 stun 아이템을 구매")
 
-bot.run('ODYwNDA0MzQ5NTM1MjU2NjE2.YN6v_g.JyU2V4yzX_WCNWcZhskyRIRNhas')
+token = open("private_token", "r").readline()
+
+bot.run(token)
