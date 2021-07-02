@@ -40,7 +40,7 @@ async def embed(ctx) :
     embed.add_field(name = "송인철", value = "Just Try.\n", inline=False)
     embed.add_field(name = "임석민", value = "Just Try.\n", inline=False)
     embed.set_footer(text = "다양한 의견 제시 바람")
-    embed.set_footer(name= "Githun", value = "[https://github.com/42bahn/Discord_bot](<https://github.com/42bahn/Discord_bot>)", inline = False)
+    embed.set_footer(text = "[https://github.com/42bahn/Discord_bot](<https://github.com/42bahn/Discord_bot>)")
     await ctx.send(embed = embed)
 ################## .help EMD
 
