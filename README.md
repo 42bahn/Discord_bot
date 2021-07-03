@@ -2,6 +2,7 @@
 
 # Discord Bot
 
+Reference : [discord.py Document](https://discordpy.readthedocs.io/en/latest/index.html)
 Hosting : [HEROKU](https://www.heroku.com/)
 
 Dev Language : Python

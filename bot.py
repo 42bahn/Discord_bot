@@ -63,8 +63,8 @@ async def hello3(ctx):
 
 
 ################## Member INFO
-@bot.command(aliases=['감자통모짜', '20시 유산균을 먹자'])
-async def 송인철(ctx):
+@bot.command(aliases=['송인철', '감자통모짜', '20시 유산균을 먹자'])
+async def call_송인철(ctx):
     await 송인철(ctx)
     # embed = discord.Embed(title = "송 인철",
     # description = "", color = 0x62c1cc)
