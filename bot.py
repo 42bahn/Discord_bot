@@ -5,6 +5,8 @@ import random
 
 from discord.flags import alias_flag_value
 
+from module.dice import dice
+
 bot = commands.Bot(command_prefix='.', help_command=None)
 
 commands = ['.help', 'ㅎㅇㅇ', 'ㅎㅇ']
@@ -125,9 +127,8 @@ async def on_member_remove(member):
 
 ################## Dice
 @bot.command()
-async def dice(ctx):
-    randnum = random.randint(1, 6)  # 1이상 6이하 랜덤 숫자를 뽑음
-    await ctx.send(f'🧛‍♂️주사위 결과 : {randnum}')
+async def call_dice(ctx):
+    dice(ctx)
 ################## Dice End
 
 ################## Cleaner
