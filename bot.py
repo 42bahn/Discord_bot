@@ -7,6 +7,7 @@ from discord.flags import alias_flag_value
 
 from module.dice import dice
 from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환
+from module.manual import manual
 
 bot = commands.Bot(command_prefix='.', help_command=None)
 
@@ -33,19 +34,9 @@ async def on_member_remove(member):
 ################## Welcome & GoodBye Message End
 
 ################## .help
-@bot.command(name='help')
-async def embed(ctx) :
-    embed = discord.Embed(title = "Commands prefix is   .",
-    description = "현재 실행 가능한 명령어", color = 0xffc0cb)
-    embed.add_field(name = "ㅎㅇ", value = "봇이 답장해줄거에요.\n", inline=False)
-    embed.add_field(name = "ㅎㅇㅇ", value = "봇이 친절하게 답장해줄거에요.\n", inline=False)
-    embed.add_field(name = "김요환", value = "Just Try.\n", inline=False)
-    embed.add_field(name = "김태훈", value = "Just Try.\n", inline=False)
-    embed.add_field(name = "손나성", value = "Just Try.\n", inline=False)
-    embed.add_field(name = "송인철", value = "Just Try.\n", inline=False)
-    embed.add_field(name = "임석민", value = "Just Try.\n", inline=False)
-    embed.add_field(name="Dev.", value = "[https://github.com/42bahn/Discord_bot](<https://github.com/42bahn/Discord_bot>)", inline=False)
-    await ctx.send(embed = embed)
+@bot.command(aliases=['도움'])
+async def help(ctx) :
+    await manual(ctx)
 ################## .help EMD
 
 
