@@ -6,6 +6,7 @@ import random
 from discord.flags import alias_flag_value
 
 from module.dice import dice
+from module.member import 송인철
 
 bot = commands.Bot(command_prefix='.', help_command=None)
 
@@ -64,12 +65,13 @@ async def hello3(ctx):
 ################## Member INFO
 @bot.command(aliases=['감자통모짜', '20시 유산균을 먹자'])
 async def 송인철(ctx):
-    embed = discord.Embed(title = "송 인철",
-    description = "", color = 0x62c1cc)
-    embed.add_field(name = "생년월일", value = "1897년 10월 24일", inline = False)
-    embed.add_field(name = "직업", value = "Secret Agent", inline = False)
-    embed.add_field(name = "취미", value = "애니메이션 감상", inline = False)
-    await ctx.send(embed = embed)
+    await 송인철(ctx)
+    # embed = discord.Embed(title = "송 인철",
+    # description = "", color = 0x62c1cc)
+    # embed.add_field(name = "생년월일", value = "1897년 10월 24일", inline = False)
+    # embed.add_field(name = "직업", value = "Secret Agent", inline = False)
+    # embed.add_field(name = "취미", value = "애니메이션 감상", inline = False)
+    # await ctx.send(embed = embed)
 
 @bot.command(aliases=['후', '후...'])
 async def 손나성(ctx):
