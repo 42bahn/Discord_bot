@@ -126,9 +126,9 @@ async def on_member_remove(member):
 
 
 ################## Dice
-@bot.command()
+@bot.command(alias=['dice'])
 async def call_dice(ctx):
-    dice(ctx)
+    await dice(ctx)
 ################## Dice End
 
 ################## Cleaner
