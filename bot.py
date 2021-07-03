@@ -10,18 +10,6 @@ from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환
 
 bot = commands.Bot(command_prefix='.', help_command=None)
 
-commands = ['.help', 'ㅎㅇㅇ', 'ㅎㅇ']
-
-################## 봇 상태메시지 '5초' 간격으로 변경 함수
-async def cmd_list(commands):
-    await bot.wait_until_ready()
-    while not bot.is_closed():
-        for c in commands:
-            await bot.change_presence(status = discord.Status.online, activity = discord.Streaming(c))
-            await asyncio.sleep(5)
-################## 봇 상태메시지 '5초' 간격으로 변경 함수 END
-
-
 ################## 봇 상태메시지 설정
 @bot.event
 async def on_ready():
@@ -29,6 +17,20 @@ async def on_ready():
     # await cmd_list(commands)
     print('Running.....')
 ################## 봇 상태메시지 설정 END
+
+################## Welcome & GoodBye Message
+@bot.event
+async def on_member_join(member):
+    fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
+    channel = member.server.get_channel("channel_id_here")
+    await bot.send_message(channel, fmt.format(member, member.server))
+ 
+@bot.event
+async def on_member_remove(member):
+    channel = member.server.get_channel("channel_id_here")
+    fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
+    await bot.send_message(channel, fmt.format(member, member.server))
+################## Welcome & GoodBye Message End
 
 ################## .help
 @bot.command(name='help')
@@ -85,22 +87,6 @@ async def call_김요환(ctx):
 ################## Member INFO END
 
 
-
-################## Welcome & GoodBye Message
-@bot.event
-async def on_member_join(member):
-    fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
-    channel = member.server.get_channel("channel_id_here")
-    await bot.send_message(channel, fmt.format(member, member.server))
- 
-@bot.event
-async def on_member_remove(member):
-    channel = member.server.get_channel("channel_id_here")
-    fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
-    await bot.send_message(channel, fmt.format(member, member.server))
-################## Welcome & GoodBye Message End
-
-
 ################## Dice
 @bot.command(aliases=['dice'])
 async def call_dice(ctx):
@@ -112,8 +98,8 @@ async def call_dice(ctx):
 # async def cleaner(ctx, amount : int):
 #     await ctx.channel.purge(limit=amount)
 
-@bot.command(name="청소", pass_context=True)
-async def clear(ctx):
+@bot.command(name="test")
+async def test(ctx):
     await ctx.channel.purge(limit=5)
 ################## Cleaner End
 #
