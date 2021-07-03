@@ -62,7 +62,7 @@ async def hello3(ctx):
 
 
 ################## Member INFO
-@bot.command(alias=['감자통모짜', '20시 유산균을 먹자'])
+@bot.command(aliases=['감자통모짜', '20시 유산균을 먹자'])
 async def 송인철(ctx):
     embed = discord.Embed(title = "송 인철",
     description = "", color = 0x62c1cc)
@@ -71,7 +71,7 @@ async def 송인철(ctx):
     embed.add_field(name = "취미", value = "애니메이션 감상", inline = False)
     await ctx.send(embed = embed)
 
-@bot.command(alias=['후', '후...'])
+@bot.command(aliases=['후', '후...'])
 async def 손나성(ctx):
     embed = discord.Embed(title = "손 나성",
     description = "", color = 0x62c1cc)
@@ -80,7 +80,7 @@ async def 손나성(ctx):
     embed.add_field(name = "취미", value = "알코올 섭취", inline = False)
     await ctx.send(embed = embed)
 
-@bot.command(alias=['XTEN'])
+@bot.command(aliases=['XTEN'])
 async def 임석민(ctx):
     embed = discord.Embed(title = "임 석민",
     description = "", color = 0x62c1cc)
@@ -89,7 +89,7 @@ async def 임석민(ctx):
     embed.add_field(name = "취미", value = "조별 과제", inline = False)
     await ctx.send(embed = embed)
 
-@bot.command(alias=['EggZegg', 'Eggzegg', 'eggZegg', 'eggzegg'])
+@bot.command(aliases=['EggZegg', 'Eggzegg', 'eggZegg', 'eggzegg'])
 async def 김태훈(ctx):
     embed = discord.Embed(title = "김 태훈",
     description = "", color = 0x62c1cc)
@@ -98,7 +98,7 @@ async def 김태훈(ctx):
     embed.add_field(name = "취미", value = "폐기 수집", inline = False)
     await ctx.send(embed = embed)
 
-@bot.command(alias=['요비'])
+@bot.command(aliases=['요비'])
 async def 김요환(ctx):
     embed = discord.Embed(title = "김 요환",
     description = "", color = 0x62c1cc)
@@ -126,9 +126,9 @@ async def on_member_remove(member):
 
 
 ################## Dice
-@bot.command(alias=['dice'])
+@bot.command(aliases=['dice'])
 async def call_dice(ctx):
-    return await dice(ctx)
+    await dice(ctx)
 ################## Dice End
 
 ################## Cleaner
