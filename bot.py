@@ -84,16 +84,19 @@ async def call_dice(ctx):
     await dice(ctx)
 ################## Dice End
 
-################## Cleaner
-# @bot.command(alias=['청소'])
-# async def cleaner(ctx, amount : int):
-#     await ctx.channel.purge(limit=amount)
-@bot.command(name="test")
-async def test(ctx):
-    owner = discord.Guild.owner
-    await ctx.send(owner)
-    # await ctx.channel.purge(limit=5)
-################## Cleaner End
+################## Test
+@bot.command(name="서버명")
+async def server_name(ctx):
+    server_name = ctx.guild
+    await ctx.send(server_name)
+
+@bot.command(name="나")
+async def me(ctx):
+    client = ctx.author
+    await ctx.send(client)
+
+
+################## Test End
 #
 # @bot.event
 # async def on_message(message):
@@ -115,6 +118,6 @@ async def test(ctx):
 
 #         await reaction.message.channel.send(user.name + "님이 stun 아이템을 구매")
 
-# token = open("private_token", "r").readline()
-
-bot.run(os.environ['token'])
+token = open("private_token", "r").readline()
+bot.run(token)
+# bot.run(os.environ['token'])
