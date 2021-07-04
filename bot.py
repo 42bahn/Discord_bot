@@ -7,7 +7,7 @@ import random
 from discord.flags import alias_flag_value
 
 from module.dice import dice
-from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환
+from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환, 안범준
 from module.manual import manual
 
 bot = commands.Bot(command_prefix='.', help_command=None)
@@ -76,6 +76,10 @@ async def call_김태훈(ctx):
 @bot.command(aliases=['김요환', '요비'])
 async def call_김요환(ctx):
     await 김요환(ctx)
+
+@bot.command(aliases=['안범준', '앙범'])
+async def call_안범준(ctx):
+    await 안범준(ctx)
 ################## Member INFO END
 
 ################## Dice

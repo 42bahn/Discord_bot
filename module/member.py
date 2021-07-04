@@ -39,3 +39,6 @@ async def 김요환(ctx):
     embed.add_field(name = "직업", value = "수상한 긴 생머리 공부방 아저씨", inline = False)
     embed.add_field(name = "취미", value = "머리카락 흩날리며 뒤돌아보기", inline = False)
     await ctx.send(embed = embed)
+
+async def 안범준(ctx):
+    await ctx.send('금지어입니다.')
