@@ -91,7 +91,7 @@ async def call_dice(ctx):
 guild = bot.guilds
 @bot.command(name="test")
 async def test(ctx):
-    owner = discord.guild.owner
+    owner = discord.Guild.owner
     await ctx.send(owner)
     # await ctx.channel.purge(limit=5)
 ################## Cleaner End
