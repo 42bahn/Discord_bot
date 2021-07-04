@@ -91,7 +91,8 @@ async def call_dice(ctx):
 
 @bot.command(name="test")
 async def test(ctx):
-    await ctx.channel.purge(limit=5)
+    await ctx.send('test')
+    # await ctx.channel.purge(limit=5)
 ################## Cleaner End
 #
 # @bot.event
