@@ -88,10 +88,11 @@ async def call_dice(ctx):
 # @bot.command(alias=['청소'])
 # async def cleaner(ctx, amount : int):
 #     await ctx.channel.purge(limit=amount)
-
+guild = bot.guilds
 @bot.command(name="test")
 async def test(ctx):
-    await ctx.send('test')
+    owner = discord.guild.owner
+    await ctx.send(owner)
     # await ctx.channel.purge(limit=5)
 ################## Cleaner End
 #
