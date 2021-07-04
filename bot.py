@@ -1,5 +1,6 @@
 import os
 import discord, asyncio
+from discord import channel
 from discord.ext import commands
 import random
 
@@ -77,7 +78,6 @@ async def call_김요환(ctx):
     await 김요환(ctx)
 ################## Member INFO END
 
-
 ################## Dice
 @bot.command(aliases=['dice'])
 async def call_dice(ctx):
@@ -94,7 +94,6 @@ async def server_name(ctx):
 async def me(ctx):
     client = ctx.author
     await ctx.send(client)
-
 
 ################## Test End
 #
