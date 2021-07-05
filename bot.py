@@ -131,6 +131,6 @@ async def clear(ctx, number : int=None):
     else:
         await ctx.send('현재 채널에서는 불가능한 명령입니다.')
 
-token = open("private_token", "r").readline()
-bot.run(token)
-# bot.run(os.environ['token'])
+# token = open("private_token", "r").readline()
+# bot.run(token)
+bot.run(os.environ['token'])
