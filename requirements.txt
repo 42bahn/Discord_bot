@@ -1,5 +1,7 @@
 discord.py
 asyncio
-selenium
+requests
 lxml
 beautifulsoup4
+websockets
+aiohttp

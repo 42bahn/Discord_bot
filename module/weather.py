@@ -1,19 +1,6 @@
 import discord
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait # WebDriver를 최대 10초까지 기다리는 객체
-from selenium.webdriver.support import expected_conditions as EC
+import requests
 from bs4 import BeautifulSoup
-
-def init_webdriver(url):
-    options = webdriver.ChromeOptions()
-    options.headless = True # True == 웹 브라우저를 띄우지 않음 / False == 웹 브라우저를 띄움
-    options.add_argument("window-size=1440,960") # 웹
-    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-    options.add_experimental_option('excludeSwitches', ['enable-logging']) # WebDriver 로드 시 터미널에 출력되는 로그 기록을 끔
-    driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", options=options)
-    driver.get(url)
-    return (driver)
 
 def remove_tag(tags):   # bs4를 통해 추출한 태그를 인자로 넘겨주어 해당 태그를 지워주는 함수
     for tag in tags:
@@ -23,18 +10,19 @@ def remove_tag(tags):   # bs4를 통해 추출한 태그를 인자로 넘겨주�
 async def naver_weather(ctx):
     url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EC%98%A4%EB%8A%98%EB%82%A0%EC%94%A8"
     
-    # Based on Selenium 
-    driver = init_webdriver(url)
-    try:
-        WebDriverWait(driver=driver, timeout=10).until(EC.presence_of_element_located((By.CLASS_NAME, "cs_weather")))
-    finally:
-        soup = BeautifulSoup(driver.page_source, "lxml")
-    # end
+    ## Based on Selenium 
+    # driver = init_webdriver()
+    # driver.get(url)
+    # try:
+    #     WebDriverWait(driver=driver, timeout=10).until(EC.presence_of_element_located((By.CLASS_NAME, "cs_weather")))
+    # finally:
+    #     soup = BeautifulSoup(driver.page_source, "lxml")
+    ## end
     
     # Based on requests, bs4
-    # res = requests.get(url)
-    # res.raise_for_status()
-    # soup = BeautifulSoup(res.text, "lxml")
+    res = requests.get(url)
+    res.raise_for_status()
+    soup = BeautifulSoup(res.text, "html.parser")
     # end
 
     remove_tag(soup.find_all("span", attrs={"class":"blind"}))
