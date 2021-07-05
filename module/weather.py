@@ -24,8 +24,7 @@ async def naver_weather(ctx):
     url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EC%98%A4%EB%8A%98%EB%82%A0%EC%94%A8"
     
     # Based on Selenium 
-    driver = init_webdriver()
-    driver.get(url)
+    driver = init_webdriver(url)
     try:
         WebDriverWait(driver=driver, timeout=10).until(EC.presence_of_element_located((By.CLASS_NAME, "cs_weather")))
     finally:
