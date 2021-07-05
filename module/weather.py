@@ -8,7 +8,7 @@ def remove_tag(tags):   # bs4를 통해 추출한 태그를 인자로 넘겨주�
 
 ##################### Naver 날씨 정보 조회 ##########################
 async def naver_weather(ctx):
-    url = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EB%82%A0%EC%94%A8"
+    url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EC%98%A4%EB%8A%98%EB%82%A0%EC%94%A8"
     
     ## Based on Selenium 
     # driver = init_webdriver()
