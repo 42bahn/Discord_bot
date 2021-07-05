@@ -15,7 +15,7 @@ bot = commands.Bot(command_prefix='.', help_command=None)
 ################## 봇 상태메시지 설정
 @bot.event
 async def on_ready():
-    await bot.change_presence(status = discord.Status.online, activity=discord.Game('.help | 제작 '))
+    await bot.change_presence(status = discord.Status.dnd, activity=discord.Game('.help | 제작 '))
     # await cmd_list(commands)
     print('Running.....')
 ################## 봇 상태메시지 설정 END
