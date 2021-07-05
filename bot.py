@@ -1,6 +1,7 @@
 import os
 import discord, asyncio
 from discord import channel
+from discord import message
 from discord.ext import commands
 import random
 
@@ -103,27 +104,33 @@ async def me(ctx):
     await ctx.send(client)
 
 ################## Test End
-#
-# @bot.event
-# async def on_message(message):
-#     if message.content.startswith('.game'):
-#         embed = discord.Embed(title="설문조사", description="설문조사", color=0x00aaaa)
-#         embed.add_field(name="⭕️", value="ㄹㅇ")
-#         embed.add_field(name="❌", value="ㄴㄴ")
-#         msg = await message.channel.send(embed=embed)
-#         await msg.add_reaction("⭕️") #step
-#         await msg.add_reaction("❌") #stun
 
-# @bot.event
-# async def on_reaction_add(reaction, user):
-#     if user.bot == 1: #봇이면 패스
-#         return None
-#     if str(reaction.emoji) == "🦶":
-#         await reaction.message.channel.send(user.name + "님이 step 아이템을 구매")
-#     if str(reaction.emoji) == "⚔️":
+@bot.command()
+async def clear(ctx, number : int=None):
+    if ctx.guild:
+        print(ctx.guild)
+        if ctx.message.author.guild_permissions.manage_messages:
+            print(ctx.message.author.guild_permissions.manage_messages)
+            # try:
+            if number is None:
+                print(1)
+                await ctx.send('숫자를 입력해주세요')
+            elif 50 < number:
+                print(2)
+                await ctx.message.delete()
+                await ctx.send(f'{ctx.message.author.mention} 50보다 큰 수는 입력할 수 없습니다.', delete_after=5)
+            else:
+                print(3)
+                deleted = await ctx.message.channel.purge(limit=number)
+                print(3)
+                await ctx.send(f'{ctx.message.author.mention}에 의해 {len(deleted)} 개의 메세지가 삭제되었습니다.')
+            # except:
+            #     await ctx.send("오류")
+        else:
+            await ctx.send('이 명령을 사용할 수 있는 권한이 없습니다.')
+    else:
+        await ctx.send('현재 채널에서는 불가능한 명령입니다.')
 
-#         await reaction.message.channel.send(user.name + "님이 stun 아이템을 구매")
-
-# token = open("private_token", "r").readline()
-# bot.run(token)
-bot.run(os.environ['token'])
+token = open("private_token", "r").readline()
+bot.run(token)
+# bot.run(os.environ['token'])
