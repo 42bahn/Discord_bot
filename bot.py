@@ -9,7 +9,7 @@ from discord.flags import alias_flag_value
 from module.dice import dice
 from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환, 안범준
 from module.manual import manual
-
+from module.weather import naver_weather
 bot = commands.Bot(command_prefix='.', help_command=None)
 
 ################## 봇 상태메시지 설정
@@ -55,6 +55,9 @@ async def hello3(ctx):
     await ctx.send('방가방가')
 ################## 인사 명령어 EMD
 
+@bot.command(aliases=['날씨'])
+async def weather(ctx):
+    await naver_weather(ctx)
 
 ################## Member INFO
 @bot.command(aliases=['송인철', '감자통모짜', '20시 유산균을 먹자'])
@@ -121,6 +124,6 @@ async def me(ctx):
 
 #         await reaction.message.channel.send(user.name + "님이 stun 아이템을 구매")
 
-# token = open("private_token", "r").readline()
-# bot.run(token)
-bot.run(os.environ['token'])
+token = open("private_token", "r").readline()
+bot.run(token)
+# bot.run(os.environ['token'])
