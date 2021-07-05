@@ -28,23 +28,24 @@ async def naver_weather(ctx):
     remove_tag(soup.find_all("span", attrs={"class":"blind"}))
     
     today = soup.find("div", attrs={"class":"main_info"})
-    current = today.find("span", attrs={"class":"todaytemp"}).get_text() + today.find("span", attrs={"class":"tempmark"}).get_text()
-    cast = today.find("p", attrs={"class":"cast_txt"}).get_text()
+    if today is not None:
+        current = today.find("span", attrs={"class":"todaytemp"}).get_text() + today.find("span", attrs={"class":"tempmark"}).get_text()
+        cast = today.find("p", attrs={"class":"cast_txt"}).get_text()
 
-    weekly = soup.find("div", attrs={"class":"_weeklyWeather"})
-    am_rain_rate = weekly.find("span", attrs={"class":"point_time morning"}).get_text().strip()
-    pm_rain_rate = weekly.find("span", attrs={"class":"point_time afternoon"}).get_text().strip()
+    # weekly = soup.find("div", attrs={"class":"_weeklyWeather"})
+    # am_rain_rate = weekly.find("span", attrs={"class":"point_time morning"}).get_text().strip()
+    # pm_rain_rate = weekly.find("span", attrs={"class":"point_time afternoon"}).get_text().strip()
 
-    atmosphere = ""
-    dust_info = soup.find("div", attrs={"class":"sub_info"})
-    for dust in dust_info.find_all("dt"):
-        atmosphere += dust.get_text() + " : " + dust.find_next_sibling("dd").get_text() + "\n"
+    # atmosphere = ""
+    # dust_info = soup.find("div", attrs={"class":"sub_info"})
+    # for dust in dust_info.find_all("dt"):
+    #     atmosphere += dust.get_text() + " : " + dust.find_next_sibling("dd").get_text() + "\n"
     
     embed = discord.Embed(title = "[오늘의 날씨]",
     description = "", color = 0x62c1cc)
     embed.add_field(name = f"현재 온도 {current}", value = f"{cast}", inline = False)
-    embed.add_field(name = "강수 확률", value = f"오전 : {am_rain_rate}, 오후 : {pm_rain_rate}", inline = False)
-    embed.add_field(name = "대기오염정보", value = f"{atmosphere}", inline = False)
+    # embed.add_field(name = "강수 확률", value = f"오전 : {am_rain_rate}, 오후 : {pm_rain_rate}", inline = False)
+    # embed.add_field(name = "대기오염정보", value = f"{atmosphere}", inline = False)
     
     await ctx.send(embed = embed)
 ####################################################################
