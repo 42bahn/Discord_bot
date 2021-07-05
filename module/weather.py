@@ -31,6 +31,9 @@ async def naver_weather(ctx):
     if today is not None:
         current = today.find("span", attrs={"class":"todaytemp"}).get_text() + today.find("span", attrs={"class":"tempmark"}).get_text()
         cast = today.find("p", attrs={"class":"cast_txt"}).get_text()
+    else :
+        current = "알수없음"
+        cast = "알수없음"
 
     # weekly = soup.find("div", attrs={"class":"_weeklyWeather"})
     # am_rain_rate = weekly.find("span", attrs={"class":"point_time morning"}).get_text().strip()
