@@ -24,11 +24,12 @@ async def naver_weather(ctx):
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "lxml")
     # end
+    print(res.text)
 
     remove_tag(soup.find_all("span", attrs={"class":"blind"}))
     
     today = soup.find("div", attrs={"class":"main_info"})
-    print(today.text)
+    
     if today is not None:
         current = today.find("span", attrs={"class":"todaytemp"}).get_text() + today.find("span", attrs={"class":"tempmark"}).get_text()
         cast = today.find("p", attrs={"class":"cast_txt"}).get_text()
