@@ -11,6 +11,7 @@ from module.dice import dice
 from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환, 안범준
 from module.manual import manual
 from module.weather import naver_weather
+from module.clear import ft_clear
 bot = commands.Bot(command_prefix='.', help_command=None)
 
 ################## 봇 상태메시지 설정
@@ -103,33 +104,15 @@ async def me(ctx):
     client = ctx.author
     await ctx.send(client)
 
+@bot.command(aliases=['ㅁㅊ', '맠쳌', '마이크체크', '마쳌', 'ㅁㅊㅁㅊ'])
+async def mic_check(ctx, target):
+    await ctx.send(f"{target}씨! 음성채널로 들어오십시오.")
+
 ################## Test End
 
-@bot.command()
+@bot.command(aliases=['청소'])
 async def clear(ctx, number : int=None):
-    if ctx.guild:
-        print(ctx.guild)
-        if ctx.message.author.guild_permissions.manage_messages:
-            print(ctx.message.author.guild_permissions.manage_messages)
-            # try:
-            if number is None:
-                print(1)
-                await ctx.send('숫자를 입력해주세요')
-            elif 50 < number:
-                print(2)
-                await ctx.message.delete()
-                await ctx.send(f'{ctx.message.author.mention} 50보다 큰 수는 입력할 수 없습니다.', delete_after=5)
-            else:
-                print(3)
-                deleted = await ctx.message.channel.purge(limit=number)
-                print(3)
-                await ctx.send(f'{ctx.message.author.mention}에 의해 {len(deleted)} 개의 메세지가 삭제되었습니다.')
-            # except:
-            #     await ctx.send("오류")
-        else:
-            await ctx.send('이 명령을 사용할 수 있는 권한이 없습니다.')
-    else:
-        await ctx.send('현재 채널에서는 불가능한 명령입니다.')
+    await ft_clear(ctx, number)
 
 # token = open("private_token", "r").readline()
 # bot.run(token)
