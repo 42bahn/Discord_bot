@@ -110,6 +110,9 @@ async def mic_check(ctx, target: discord.User):
         await ctx.send("요청할 유저의 멘션을 기입해주세요.")
     await ctx.send(f"{target}씨! 음성채널로 들어오십시오.")
 
+@mic_check.error
+async def mc_error(ctx):
+    await ctx.send("요청할 유저의 멘션을 기입해주세요.")
 ################## Test End
 
 @bot.command(aliases=['청소'])
