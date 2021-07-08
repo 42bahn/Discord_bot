@@ -105,7 +105,7 @@ async def me(ctx):
     await ctx.send(client)
 
 @bot.command(aliases=['ㅁㅊ', '맠쳌', '마이크체크', '마쳌', 'ㅁㅊㅁㅊ'])
-async def mic_check(ctx, target):
+async def mic_check(ctx, *target):
     if len(target) == 0:
         await ctx.send("요청할 유저들의 멘션을 기입해주세요.")
     
