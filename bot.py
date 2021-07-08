@@ -110,7 +110,7 @@ async def mic_check(ctx, *target):
         await ctx.send("모두 음성채널로 들어와주시기 바랍니다. @everyone")
     else:
         # await ctx.send(f"{target}씨! 음성채널로 들어오십시오.")
-        await ctx.send('{}씨! 음성채널로 들어오십시오.'.format(', '.join(target)))
+        await ctx.send('{}씨!\n 음성채널로 들어오십시오.'.format(', '.join(target)))
 
 @mic_check.error
 async def mc_error(ctx):
