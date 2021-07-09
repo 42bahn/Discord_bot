@@ -1,11 +1,11 @@
+from datetime import datetime
 import os
 import discord, asyncio
 from discord import channel
 from discord import message
 from discord.ext import commands
-import random
-
 from discord.flags import alias_flag_value
+import sqlite3
 
 from module.dice import dice
 from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환, 안범준
@@ -14,6 +14,29 @@ from module.weather import naver_weather
 from module.clear import ft_clear
 from module.mic_check import ft_mic_check as 마쳌
 bot = commands.Bot(command_prefix='.', help_command=None)
+
+def member_db_check(id):
+    alr_exist = []
+    con = sqlite3.connect(r'member.db', isolation_level = None)
+    cur = con.cursor()
+    cur.execute("SELECT id FROM Member WHERE id = ?", (id,))
+    rows = cur.fetchall()
+    for i in rows :
+        alr_exist.append(i[0])
+    if id not in alr_exist :
+        return 0
+    elif id in alr_exist :
+        return 1
+    con.close()
+
+@bot.command(aliases=['가입', '등록'])
+async def sign_up(ctx):
+    con = sqlite3.connect(r'member.db', isolation_level=None)
+    cur = con.cursor()
+    if member_db_check(ctx.author.id) == 0:
+        cur.execute("INSERT INTO Member VALUES(?, ?, ?, ?, ?)", \
+            (ctx.author.id, ctx.author.name, 'NULL', 'NULL', datetime.now(),))
+    await ctx.send('등록 완료')
 
 ################## 봇 상태메시지 설정
 @bot.event

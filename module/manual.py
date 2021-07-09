@@ -11,4 +11,4 @@ async def manual(ctx) :
     embed.add_field(name = "송인철", value = "Just Try.\n", inline=False)
     embed.add_field(name = "임석민", value = "Just Try.\n", inline=False)
     embed.add_field(name="Dev.", value = "[https://github.com/42bahn/Discord_bot](<https://github.com/42bahn/Discord_bot>)", inline=False)
-    await ctx.send(embed = embed)
+    await ctx.reply(embed = embed)
