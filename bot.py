@@ -12,6 +12,7 @@ from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환,
 from module.manual import manual
 from module.weather import naver_weather
 from module.clear import ft_clear
+from module.mic_check import ft_mic_check as 마쳌
 bot = commands.Bot(command_prefix='.', help_command=None)
 
 ################## 봇 상태메시지 설정
@@ -106,11 +107,7 @@ async def me(ctx):
 
 @bot.command(aliases=['ㅁㅊ', '맠쳌', '마이크체크', '마쳌', 'ㅁㅊㅁㅊ'])
 async def mic_check(ctx, *target):
-    if len(target) == 0:
-        await ctx.reply("모두 음성채널로 들어와주시기 바랍니다. @everyone")
-    else:
-        # await ctx.send(f"{target}씨! 음성채널로 들어오십시오.")
-        await ctx.reply('{}씨!\n 음성채널로 들어오십시오.'.format(', '.join(target)))
+    await 마쳌(ctx)
 
 @mic_check.error
 async def mc_error(ctx):
