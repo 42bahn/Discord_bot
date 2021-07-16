@@ -130,7 +130,7 @@ async def me(ctx):
 
 @bot.command(aliases=['ㅁㅊ', '맠쳌', '마이크체크', '마쳌', 'ㅁㅊㅁㅊ'])
 async def mic_check(ctx, *target):
-    await 마쳌(ctx)
+    await 마쳌(ctx, target)
 
 @mic_check.error
 async def mc_error(ctx):
