@@ -121,7 +121,7 @@ async def call_dice(ctx):
 @bot.command(name="서버명")
 async def server_name(ctx):
     server_name = ctx.guild
-    await ctx.send(content=server_name, delete_after=True)
+    await ctx.send(content=server_name, delete_after=10)
 
 @bot.command(name="나")
 async def me(ctx):
