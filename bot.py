@@ -70,7 +70,7 @@ async def help(ctx) :
 ################## 인사 명령어
 @bot.command(aliases=['ㅎㅇㅇ', '하이염', '하이여'])
 async def hello1(ctx):
-    await ctx.send('어 그래 어서오고. 잘 지내냐?')
+    await ctx.send(content='어 그래 어서오고. 잘 지내냐?', tts=True)
 
 @bot.command(aliases=['ㅎㅇ', '하이'])
 async def hello2(ctx):
@@ -134,8 +134,7 @@ async def mic_check(ctx, *target):
 
 @bot.command()
 async def test(ctx):
-    input_val = input("입력 : ")
-    await ctx.send(input_val)
+    await ctx.trigger_typing()
 ################## Test End
 
 @bot.command(aliases=['청소'])
