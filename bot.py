@@ -138,7 +138,7 @@ async def mic_check(ctx, *target):
 
 @bot.command()
 async def test(ctx, *target):
-    await 마쳌(ctx, target)
+    await 마쳌(ctx, *target)
 ################## Test End
 
 @bot.command(aliases=['청소'])
