@@ -136,9 +136,9 @@ async def mic_check(ctx, *target):
         # await ctx.send(f"{target}씨! 음성채널로 들어오십시오.")
         await ctx.reply('{}씨!\n 음성채널로 들어오십시오.'.format(', '.join(target)))
 
-@mic_check.error
-async def mc_error(ctx):
-    await ctx.send("요청할 유저의 멘션을 기입해주세요.")
+@bot.command()
+async def test(ctx, *target):
+    await 마쳌(ctx, target)
 ################## Test End
 
 @bot.command(aliases=['청소'])
