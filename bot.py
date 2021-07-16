@@ -86,15 +86,15 @@ async def weather(ctx):
     await naver_weather(ctx)
 
 ################## Member INFO
-@bot.command(aliases=['송인철', '감자통모짜', '20시 유산균을 먹자'])
+@bot.command(aliases=['송인철', '인철' '감자통모짜', '20시 유산균을 먹자'])
 async def call_송인철(ctx):
     await 송인철(ctx)
 
-@bot.command(aliases=['손나성', '후', '후...'])
+@bot.command(aliases=['손나성', '후', '후...', '나성'])
 async def call_손나성(ctx):
     await 손나성(ctx)
 
-@bot.command(aliases=['임석민', 'XTEN'])
+@bot.command(aliases=['임석민', 'XTEN', '석민'])
 async def call_임석민(ctx):
     await 임석민(ctx)
 
@@ -102,11 +102,11 @@ async def call_임석민(ctx):
 async def call_김태훈(ctx):
     await 김태훈(ctx)
 
-@bot.command(aliases=['김요환', '요비'])
+@bot.command(aliases=['김요환', '요비', '요환'])
 async def call_김요환(ctx):
     await 김요환(ctx)
 
-@bot.command(aliases=['안범준', '앙범'])
+@bot.command(aliases=['안범준', '앙범', '범준'])
 async def call_안범준(ctx):
     await 안범준(ctx)
 ################## Member INFO END
@@ -126,7 +126,7 @@ async def server_name(ctx):
 @bot.command(name="나")
 async def me(ctx):
     client = ctx.author
-    await ctx.send(client)
+    await ctx.send(client, delete_after=10)
 
 @bot.command(aliases=['ㅁㅊ', '맠쳌', '마이크체크', '마쳌', 'ㅁㅊㅁㅊ'])
 async def mic_check(ctx, *target):
