@@ -121,7 +121,7 @@ async def call_dice(ctx):
 @bot.command(name="서버명")
 async def server_name(ctx):
     server_name = ctx.guild
-    await ctx.send(server_name)
+    await ctx.send(content=server_name, delete_after=True)
 
 @bot.command(name="나")
 async def me(ctx):
@@ -131,6 +131,10 @@ async def me(ctx):
 @bot.command(aliases=['ㅁㅊ', '맠쳌', '마이크체크', '마쳌', 'ㅁㅊㅁㅊ'])
 async def mic_check(ctx, *target):
     await 마쳌(ctx, *target)
+
+@bot.command()
+async def 입력하는척(ctx):
+    await ctx.trigger_typing()
 
 @bot.command()
 async def test(ctx):
