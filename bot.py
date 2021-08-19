@@ -8,7 +8,7 @@ from discord.flags import alias_flag_value
 import sqlite3
 
 from module.dice import dice
-from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환, 안범준
+from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환, 김규철, 안범준
 from module.manual import manual
 from module.weather import naver_weather
 from module.clear import ft_clear
@@ -105,6 +105,10 @@ async def call_김태훈(ctx):
 @bot.command(aliases=['김요환', '요비', '요환'])
 async def call_김요환(ctx):
     await 김요환(ctx)
+
+@bot.command(aliases=['김규철', '규철', '규철아', '규스터', '하키미'])
+async def call_김규철(ctx):
+    await 김규철(ctx)
 
 @bot.command(aliases=['안범준', '앙범', '범준'])
 async def call_안범준(ctx):
