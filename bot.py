@@ -106,7 +106,7 @@ async def call_김태훈(ctx):
 async def call_김요환(ctx):
     await 김요환(ctx)
 
-@bot.command(aliases=['김규철', '규철', '규철아', '규스터', '하키미'])
+@bot.command(aliases=['김규철', '규철', '규철이', '규철아', '규스터', '하키미'])
 async def call_김규철(ctx):
     await 김규철(ctx)
 
