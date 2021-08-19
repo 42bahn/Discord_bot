@@ -43,7 +43,7 @@ async def 김요환(ctx):
 async def 김규철(ctx):
     embed = discord.Embed(title = "아치라프 하키미 (Achraf Hakimi)",
     description = "", color = 0x62c1cc)
-    embed.set_image("https://postfiles.pstatic.net/MjAyMTA2MjFfMTEz/MDAxNjI0Mjc3MzE4ODY1.p_dbUZNGyHQqYJxT8zDaZnHNLU00ahCev2OHmi-FfvAg.qF_ILAvEquYFThrv1s5SUjEG0q9hmrBqudJN48yo1Tgg.JPEG.tts0732/KakaoTalk_20210621_200750983_06.jpg?type=w773")
+    embed.set_image(url="https://postfiles.pstatic.net/MjAyMTA2MjFfMTEz/MDAxNjI0Mjc3MzE4ODY1.p_dbUZNGyHQqYJxT8zDaZnHNLU00ahCev2OHmi-FfvAg.qF_ILAvEquYFThrv1s5SUjEG0q9hmrBqudJN48yo1Tgg.JPEG.tts0732/KakaoTalk_20210621_200750983_06.jpg?type=w773")
     embed.add_field(name = "생년월일", value = "1998년 11월 4일, 스페인", inline = False)
     embed.add_field(name = "직업", value = "축구선수", inline = False)
     embed.add_field(name = "신체", value = "181cm, 73kg", inline = False)
