@@ -141,8 +141,16 @@ async def 도우미(ctx, *target):
     embed = discord.Embed(title = "노래도우미 사용법",
     description = "", color = 0x62c1cc)
     # embed.set_image(url="sonycast.GIF")
-    embed.add_field(name = "!np <link>", value = "바로 재생", inline = False)
-    embed.add_field(name = "!p <link>", value = "재생목록 추가", inline = False)
+    embed.add_field(name = "!np <link/query>", value = "바로 재생", inline = False)
+    embed.add_field(name = "!p <link/query>", value = "재생목록 추가", inline = False)
+    embed.add_field(name = "!ps <link/query>", value = "현재 재생곡 스킵하고 입력한 링크 재생", inline = False)
+    embed.add_field(name = "!search <query>", value = "유튜브 검색", inline = False)
+    embed.add_field(name = "!rwd <time>", value = "time 만큼 되감기", inline = False)
+    embed.add_field(name = "!fwd <time>", value = "time 만큼 앞으로 이동", inline = False)
+    embed.add_field(name = "!loop", value = "현재 재생목록 반복", inline = False)
+    embed.add_field(name = "!stop", value = "일시 정지", inline = False)
+    embed.add_field(name = "!cl", value = "모든 재생목록 제거", inline = False)
+    
     await ctx.reply(embed = embed)
 
 @bot.command()
