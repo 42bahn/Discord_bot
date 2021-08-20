@@ -140,7 +140,7 @@ async def mic_check(ctx, *target):
 async def 도우미(ctx, *target):
     embed = discord.Embed(title = "노래도우미 사용법",
     description = "", color = 0x62c1cc)
-    embed.set_image(url="sonycast.GIF")
+    # embed.set_image(url="sonycast.GIF")
     embed.add_field(name = "!np <link>", value = "바로 재생", inline = False)
     embed.add_field(name = "!p <link>", value = "재생목록 추가", inline = False)
     await ctx.reply(embed = embed)
