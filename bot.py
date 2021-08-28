@@ -155,7 +155,7 @@ async def 도우미(ctx, *target):
     embed.add_field(name = "More", value = "[Rythm](<https://rythm.fm/docs/commands/>)")
     await ctx.reply(embed = embed)
 
-@bot.command(alias=['자기야'])
+@bot.command(aliases=['자기야'])
 async def call_rythm(ctx):
     await ctx.send('!join')
 
