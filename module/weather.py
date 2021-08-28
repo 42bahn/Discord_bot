@@ -1,6 +1,8 @@
 import discord
+import re
 import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
 
 def remove_tag(tags):   # bs4를 통해 추출한 태그를 인자로 넘겨주어 해당 태그를 지워주는 함수
     for tag in tags:
@@ -20,15 +22,19 @@ async def naver_weather(ctx):
     ## end
     
     # Based on requests, bs4
-    res = requests.get(url)
+    res = requests.get("www.naver.com")
     res.raise_for_status()
-    soup = BeautifulSoup(res.text, "html.parser")
+    print(res);
+
+    # soup = BeautifulSoup(res.text, "html.parser")
+    soup = BeautifulSoup(res.text, "lxml")
+    print(res);
+
     # end
 
     remove_tag(soup.find_all("span", attrs={"class":"blind"}))
     
     today = soup.find("div", attrs={"class":"main_info"})
-    
     if today is not None:
         current = today.find("span", attrs={"class":"todaytemp"}).get_text() + today.find("span", attrs={"class":"tempmark"}).get_text()
         cast = today.find("p", attrs={"class":"cast_txt"}).get_text()

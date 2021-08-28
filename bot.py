@@ -153,8 +153,11 @@ async def 도우미(ctx, *target):
     embed.add_field(name = "!clear <@user>", value = "모든 재생목록 제거 (또는 특정 유저가 추가한 재생목록 제거", inline = False)
     embed.add_field(name = "!disconnect", value = "노래도우미(Rythm) 연결종료", inline = False)
     embed.add_field(name = "More", value = "[Rythm](<https://rythm.fm/docs/commands/>)")
-    
     await ctx.reply(embed = embed)
+
+@bot.command(alias=['자기야'])
+async def call_rythm(ctx):
+    await ctx.send('!join')
 
 @bot.command()
 async def 입력하는척(ctx):
