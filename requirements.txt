@@ -1,6 +1,5 @@
 discord.py
 asyncio
-re
 requests
 lxml
 beautifulsoup4
