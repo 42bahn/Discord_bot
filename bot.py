@@ -10,7 +10,7 @@ import sqlite3
 from module.dice import dice
 from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환, 김규철, 안범준
 from module.manual import manual
-from module.weather import naver_weather
+# from module.weather import naver_weather
 from module.clear import ft_clear
 from module.mic_check import ft_mic_check as 마쳌
 bot = commands.Bot(command_prefix='.', help_command=None)
@@ -81,9 +81,9 @@ async def hello3(ctx):
     await ctx.send('방가방가')
 ################## 인사 명령어 EMD
 
-@bot.command(aliases=['날씨'])
-async def weather(ctx):
-    await naver_weather(ctx)
+# @bot.command(aliases=['날씨'])
+# async def weather(ctx):
+#     await naver_weather(ctx)
 
 ################## Member INFO
 @bot.command(aliases=['송인철', '인철' '감자통모짜', '20시 유산균을 먹자'])
