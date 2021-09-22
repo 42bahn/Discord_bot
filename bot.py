@@ -158,8 +158,8 @@ async def 도우미(ctx, *target):
 @bot.command(aliases=['추방'])
 async def member_kick(ctx):
     member = message.guild.get_member(int(message.content.split(" ")[1]))
-    ctx.send(member);
-    await message.guild.kick(member, reason=' '.join(message.content.split(" ")[2:]))
+    # await message.guild.kick(member, reason=' '.join(message.content.split(" ")[2:]))
+    await ctx.send(member);
 
 @bot.command()
 async def 입력하는척(ctx):
