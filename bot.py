@@ -155,9 +155,10 @@ async def 도우미(ctx, *target):
     embed.add_field(name = "More", value = "[Rythm](<https://rythm.fm/docs/commands/>)")
     await ctx.reply(embed = embed)
 
-@bot.command(aliases=['자기야'])
-async def call_rythm(ctx):
-    await ctx.send('!join')
+@bot.command(aliases=['추방'])
+async def member_kick(ctx):
+    member = message.guild.get_member(int(message.content.split(" ")[1]))
+    await message.guild.kick(member, reason=' '.join(message.content.split(" ")[2:]))
 
 @bot.command()
 async def 입력하는척(ctx):
