@@ -9,7 +9,7 @@ async def manual(ctx) :
     embed.add_field(name = "ㅎㅇㅇ", value = "봇이 친절하게 답장해줄거에요.\n", inline=False)
     embed.add_field(name = "Member RealName or Nickname", value = "Just Try.\n", inline=False)
     embed.add_field(name = "날씨", value = "봇이 날씨 정보를 알려줍니다.\n", inline=False)
-    
+    embed.add_field(name = "저녁추천, 저녁 추천, 저녁 추천 좀", value = "봇이 날씨 정보를 알려줍니다.\n", inline=False)
 
     embed.add_field(name="Dev.", value = "[https://github.com/42bahn/Discord_bot](<https://github.com/42bahn/Discord_bot>)", inline=False)
     await ctx.reply(embed = embed)
