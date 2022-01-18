@@ -6,6 +6,7 @@ from discord import message
 from discord.ext import commands
 from discord.flags import alias_flag_value
 import sqlite3
+import random
 
 from module.dice import dice
 from module.member import 송인철, 손나성, 임석민, 김태훈, 김요환, 김규철, 안범준
@@ -160,6 +161,12 @@ async def member_kick(ctx, *target):
     # member = message.guild.get_member(int(message.content.split(" ")[1]))
     # await message.guild.kick(member, reason=' '.join(message.content.split(" ")[2:]))
     await ctx.reply('{}씨!\n 당장 나가주세요.'.format(', '.join(target)))
+
+@bot.command(aliases=['저녁추천', '저녁 추천', '저녁 추천 좀'])
+async def member_kick(ctx):
+    menu = ['백반', '불백', '치킨', '피자', '자장면', '햄버거', '초밥', '생선구이', '생선조림',
+            '다이어트', '돈까스', '덮밥', '분식', '라면', '짜파게티', '스테이크']
+    await ctx.reply('{}'.random.shuffle(menu))
 
 @bot.command()
 async def 입력하는척(ctx):
