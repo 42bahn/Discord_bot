@@ -166,7 +166,7 @@ async def 도우미(ctx, *target):
 async def member_kick(ctx):
     menu = ['백반', '불백', '치킨', '피자', '자장면', '햄버거', '초밥', '생선구이', '생선조림',
             '다이어트', '돈까스', '덮밥', '분식', '라면', '짜파게티', '스테이크']
-    await ctx.reply('{}'.random.shuffle(menu))
+    await ctx.reply(random.choice(menu))
 
 @bot.command()
 async def 입력하는척(ctx):
