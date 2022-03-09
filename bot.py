@@ -19,7 +19,7 @@ from module.ballot_counting import ballot_counting
 bot = commands.Bot(command_prefix='.', help_command=None)
 
 
-@bot.command(aliases=['ㅎㅇㄹ', '하이루', '하잉'])
+@bot.command(aliases=['개표'])
 async def call_ballot_counting(ctx):
     await ballot_counting(ctx);
 
