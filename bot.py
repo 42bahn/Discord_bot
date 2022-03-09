@@ -14,7 +14,14 @@ from module.manual import manual
 # from module.weather import naver_weather
 from module.clear import ft_clear
 from module.mic_check import ft_mic_check as 마쳌
+from module.ballot_counting import ballot_counting
+
 bot = commands.Bot(command_prefix='.', help_command=None)
+
+
+@bot.command(aliases=['ㅎㅇㄹ', '하이루', '하잉'])
+async def call_ballot_counting(ctx):
+    await ballot_counting(ctx);
 
 def member_db_check(id):
     alr_exist = []
